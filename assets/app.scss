@@ -76,6 +76,7 @@ header {
                 width: 25px;
                 height: 25px;
                 font-size: 12px;
+                font-weight: 700;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -180,6 +181,13 @@ header {
                         }
                     }
                 }
+            }
+            .empty_text {
+                font-size: 18px;
+                font-weight: 700;
+                padding: 25px 0 40px;
+                text-align: center;
+                color: #f82f0b;
             }
             &.active {
                 opacity: 1;

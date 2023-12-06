@@ -11,6 +11,8 @@ function openCart() {
 
 // End 
 
+
+// Get Product Info
 let products = [];
 
 function addToCart(productId) {
@@ -32,10 +34,12 @@ function addToCart(productId) {
 
 }
 
+//  Push To Cart
 function pushCart() {
     let basketItems = document.querySelector(".basket .list_items");
     let basketTotal = document.querySelector(".basket .dropdown .bottom .price span");
-    // let basketCount = document.querySelector(".basket >. btn .count");
+    let basketCount = document.querySelector(".basket > .btn .count");
+    let subTotalCount = document.querySelector(".basket .sub_total .count");
 
     basketItems.innerHTML = "";
 
@@ -72,6 +76,19 @@ function pushCart() {
 
     basketTotal.innerHTML = total
 
-    // basketCount.innerHTML = basketItems.childElementCount
-
+    basketCount.innerHTML = basketItems.childElementCount
+    subTotalCount.innerHTML = basketItems.childElementCount
+    // console.log(basketItems.childElementCount);    
 }
+
+
+function setupDeleteButton() {
+    document.getElementById("myList").addEventListener("click", function (event) {
+        if (event.target.classList.contains("delete-btn")) {
+            var listItem = event.target.parentNode;
+            listItem.parentNode.removeChild(listItem);
+        }
+    });
+}
+
+setupDeleteButton();

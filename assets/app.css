@@ -80,6 +80,7 @@ header .basket > .btn .count {
   width: 25px;
   height: 25px;
   font-size: 12px;
+  font-weight: 700;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -178,6 +179,13 @@ header .basket .dropdown .list_items .item .delete {
 }
 header .basket .dropdown .list_items .item .delete svg {
   display: block;
+}
+header .basket .dropdown .empty_text {
+  font-size: 18px;
+  font-weight: 700;
+  padding: 25px 0 40px;
+  text-align: center;
+  color: #f82f0b;
 }
 header .basket .dropdown.active {
   opacity: 1;
