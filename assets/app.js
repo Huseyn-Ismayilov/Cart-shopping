@@ -1,40 +1,77 @@
-let cart = [];
+// Toggle Basket
+
+let cartToggle = document.querySelector('.basket > .btn')
+
+cartToggle.addEventListener("click", openCart)
+
+function openCart() {
+    var element = document.querySelector(".basket .dropdown");
+    element.classList.toggle("active");
+}
+
+// End 
+
+let products = [];
 
 function addToCart(productId) {
-    const product = document.getElementById(productId);
-    const productName = product.querySelector('.title').innerHTML
-    const productPrice = parseFloat(product.querySelector('.price span').innerHTML);
-    const productImage = product.querySelector('.image img').src
+    let product = document.getElementById(productId);
+    let productName = product.querySelector('.title h3').innerHTML
+    let productSize = parseFloat(product.querySelector('.title span').innerHTML);
+    let productPrice = parseFloat(product.querySelector('.price span').innerHTML);
+    let productImage = product.querySelector('.image img').src
 
-    cart.push({
-        id: productClass,
+    products.push({
+        id: productId,
         name: productName,
         price: productPrice,
-        image: productImage
+        image: productImage,
+        size: productSize
     });
 
-    updateCart();
+    pushCart();
 
 }
 
-function updateCart() {
-    const cartItems = document.querySelector(".cart-items");
-    const cartTotal = document.querySelector(".cart-total");
+function pushCart() {
+    let basketItems = document.querySelector(".basket .list_items");
+    let basketTotal = document.querySelector(".basket .dropdown .bottom .price span");
+    // let basketCount = document.querySelector(".basket >. btn .count");
 
-    cartItems.innerHTML = "";
+    basketItems.innerHTML = "";
 
     let total = 0;
 
-    cart.forEach(item => {
-        const listItem = document.createElement("li");
-        listItem.innerHTML = `
-            <h3>${item.name}</h3>
-            <p>$${item.price}</p>
-            <img src="${item.image}">
+    products.forEach(item => {
+        let productItem = document.createElement("li");
+        productItem.classList.add("item");
+
+        productItem.innerHTML = `
+            <div class="image">
+                <img src="${item.image}" alt="">
+            </div>
+            <div class="details">
+                <span class="count">x1</span>
+                <div class="product_title">
+                    <h3>${item.name}</h3>
+                    <span class="size">size: ${item.size}cm</span>
+                </div>
+                <div class="price">
+                    <span>${item.price}</span>
+                    <sup>$</sup>
+                </div>
+            </div>
+            <div class="delete">
+                <img src="./assets/images/delete-btn.svg" width="24" alt="">
+            </div>
+                           
         `;
-        cartItems.appendChild(listItem);
+
+        basketItems.appendChild(productItem);
         total += item.price;
     });
 
-    cartTotal.innerHTML = total.toFixed(2);
+    basketTotal.innerHTML = total
+
+    // basketCount.innerHTML = basketItems.childElementCount
+
 }
