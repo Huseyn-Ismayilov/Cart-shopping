@@ -63,7 +63,8 @@ function pushToCart() {
             <div class="delete">
                 <img src="./assets/images/delete-btn.svg" width="24" alt="">
             </div>
-        `;
+        `
+        ;
 
         basketItems.appendChild(productItem);
         total += item.price;
