@@ -1,5 +1,4 @@
 // Toggle Basket
-
 let cartToggle = document.querySelector('.basket > .btn')
 
 cartToggle.addEventListener("click", openCart)
@@ -11,7 +10,6 @@ function openCart() {
 
 
 // Get Product
-
 let products = [];
 
 function getProduct(productId) {
@@ -29,7 +27,6 @@ function getProduct(productId) {
     });
 
     pushToCart();
-
 }
 
 
@@ -39,12 +36,12 @@ function pushToCart() {
     let basketTotal = document.querySelector(".basket .dropdown .bottom .price span");
     let basketCount = document.querySelector(".basket > .btn .count");
     let subTotalCount = document.querySelector(".basket .sub_total .count");
+    var deleteButton = document.querySelector(".list_items .delete");
 
     basketItems.innerHTML = "";
-
     let total = 0;
 
-    products.forEach(item => {
+    products.forEach((item, index) => {
         let productItem = document.createElement("li");
         productItem.classList.add("item");
 
@@ -66,21 +63,23 @@ function pushToCart() {
             <div class="delete">
                 <img src="./assets/images/delete-btn.svg" width="24" alt="">
             </div>
-                           
         `;
 
         basketItems.appendChild(productItem);
         total += item.price;
     });
 
-    basketTotal.innerHTML = total
 
     basketCount.innerHTML = basketItems.childElementCount
     subTotalCount.innerHTML = basketItems.childElementCount
+    basketTotal.innerHTML = total
+
+
+    console.log(basketItems.childNodes.length);
     // console.log(basketItems.childElementCount);    
 }
 
 // Delete from Cart
 function deleteFromCart() {
-    
+
 }

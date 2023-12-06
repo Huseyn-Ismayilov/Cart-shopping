@@ -93,9 +93,6 @@ header {
                 background-color: rgb(247, 247, 247);
             }
         }
-        .title {
-            margin-bottom: 24px;
-        }
         .dropdown {
             position: absolute;
             top: calc(100% + 20px);
@@ -111,8 +108,8 @@ header {
             box-shadow: 0px 21px 30.9px 0px rgba(0, 0, 0, 0.1);
             border: 1px solid #eceef6;
             .title {
-                margin: 30px;
-                margin-bottom: 10px;
+                padding: 30px;
+                padding-bottom: 10px;
             }
             .btn {
                 font-size: 18px;

@@ -96,9 +96,6 @@ header .basket > .btn .count {
 header .basket > .btn:hover {
   background-color: rgb(247, 247, 247);
 }
-header .basket .title {
-  margin-bottom: 24px;
-}
 header .basket .dropdown {
   position: absolute;
   top: calc(100% + 20px);
@@ -115,8 +112,8 @@ header .basket .dropdown {
   border: 1px solid #eceef6;
 }
 header .basket .dropdown .title {
-  margin: 30px;
-  margin-bottom: 10px;
+  padding: 30px;
+  padding-bottom: 10px;
 }
 header .basket .dropdown .btn {
   font-size: 18px;
