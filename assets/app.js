@@ -5,7 +5,7 @@ let cartToggle = document.querySelector('.basket > .btn')
 cartToggle.addEventListener("click", openCart)
 
 function openCart() {
-    var element = document.querySelector(".basket .dropdown");
+    let element = document.querySelector(".basket .dropdown");
     element.classList.toggle("active");
 }
 
@@ -82,5 +82,5 @@ function pushToCart() {
 
 // Delete from Cart
 function deleteFromCart() {
-
+    
 }
