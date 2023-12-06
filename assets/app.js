@@ -37,6 +37,8 @@ function pushToCart() {
     let basketCount = document.querySelector(".basket > .btn .count");
     let subTotalCount = document.querySelector(".basket .sub_total .count");
     var deleteButton = document.querySelector(".list_items .delete");
+    var priceTag = document.querySelector(".basket > .btn .price_tag");
+
 
     basketItems.innerHTML = "";
     let total = 0;
@@ -75,12 +77,13 @@ function pushToCart() {
     subTotalCount.innerHTML = basketItems.childElementCount
     basketTotal.innerHTML = total
 
-
+    // priceTag.innerHTML = `${basketCount}`;
     console.log(basketItems.childNodes.length);
     // console.log(basketItems.childElementCount);    
 }
 
 // Delete from Cart
-function deleteFromCart() {
-
+function deleteFromCart(productId) {
+    let product = document.getElementById(productId);
+    console.log(product)
 }

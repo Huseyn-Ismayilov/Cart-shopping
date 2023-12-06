@@ -213,7 +213,7 @@ header .basket .dropdown.active {
 .products_list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
+  gap: 64px 40px;
   padding: 40px 0 80px;
 }
 
@@ -223,7 +223,6 @@ header .basket .dropdown.active {
   position: relative;
   padding: 20px;
   border-radius: 16px;
-  margin-bottom: 24px;
   transition: 0.15s;
   cursor: pointer;
 }
