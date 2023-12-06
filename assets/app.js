@@ -1,57 +1,40 @@
-let products = document.querySelector('.products_list')
-let productsItem = document.querySelector('.product_item')
+let cart = [];
 
+function addToCart(productId) {
+    const product = document.getElementById(productId);
+    const productName = product.querySelector('.title').innerHTML
+    const productPrice = parseFloat(product.querySelector('.price span').innerHTML);
+    const productImage = product.querySelector('.image img').src
 
-function createCartProduct(title, price, imgSrc, size) {
-    return `
-    <li class="item">
-        <div class="image">
-            <img src="${imgSrc}" alt="">
-        </div>
-        <div class="details">
-            <span class="count">x1</span>
-            <div class="product_title">
-                <h3>${title}</h3>
-                <span class="size">${size}</span>
-            </div>
-            <div class="price">
-                <span>${price}</span>
-                <sup>$</sup>
-            </div>
-        </div>
-        <div class="delete">
-            <img src="./assets/images/delete-btn.svg" alt="">
-        </div>
-    </li>
-    `;
+    cart.push({
+        id: productClass,
+        name: productName,
+        price: productPrice,
+        image: productImage
+    });
+
+    updateCart();
+
 }
 
-//Add Cart
+function updateCart() {
+    const cartItems = document.querySelector(".cart-items");
+    const cartTotal = document.querySelector(".cart-total");
 
+    cartItems.innerHTML = "";
 
+    let total = 0;
 
-let productButton = document.querySelectorAll(".product_item .details .btn")
-
-productButton.forEach(function (event) {
-    event.addEventListener('click', function () {
-        let product = this.parentElement
-        let title = product.querySelector('.title h3').innerHTML;
-        let size = product.querySelector('.title span').innerHTML;
-        let price = product.querySelector('.price').innerHTML;
-        let desc = product.querySelector('p').innerHTML;
-        // let imageSrc = product.querySelector('.image img')[0].src;
-        console.log(title)
-        console.log(size);
-        console.log(price);
-        console.log(desc);
+    cart.forEach(item => {
+        const listItem = document.createElement("li");
+        listItem.innerHTML = `
+            <h3>${item.name}</h3>
+            <p>$${item.price}</p>
+            <img src="${item.image}">
+        `;
+        cartItems.appendChild(listItem);
+        total += item.price;
     });
-});
 
-
-// productButton.forEach(function (event) {
-//     event.addEventListener('click', function () {
-        
-//     });
-// });
-
-
+    cartTotal.innerHTML = total.toFixed(2);
+}
