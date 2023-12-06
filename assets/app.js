@@ -9,13 +9,12 @@ function openCart() {
     element.classList.toggle("active");
 }
 
-// End 
 
+// Get Product
 
-// Get Product Info
 let products = [];
 
-function addToCart(productId) {
+function getProduct(productId) {
     let product = document.getElementById(productId);
     let productName = product.querySelector('.title h3').innerHTML
     let productSize = parseFloat(product.querySelector('.title span').innerHTML);
@@ -23,19 +22,19 @@ function addToCart(productId) {
     let productImage = product.querySelector('.image img').src
 
     products.push({
-        id: productId,
         name: productName,
         price: productPrice,
         image: productImage,
         size: productSize
     });
 
-    pushCart();
+    pushToCart();
 
 }
 
-//  Push To Cart
-function pushCart() {
+
+// Push To Cart
+function pushToCart() {
     let basketItems = document.querySelector(".basket .list_items");
     let basketTotal = document.querySelector(".basket .dropdown .bottom .price span");
     let basketCount = document.querySelector(".basket > .btn .count");
@@ -81,14 +80,7 @@ function pushCart() {
     // console.log(basketItems.childElementCount);    
 }
 
+// Delete from Cart
+function deleteFromCart() {
 
-function setupDeleteButton() {
-    document.getElementById("myList").addEventListener("click", function (event) {
-        if (event.target.classList.contains("delete-btn")) {
-            var listItem = event.target.parentNode;
-            listItem.parentNode.removeChild(listItem);
-        }
-    });
 }
-
-setupDeleteButton();

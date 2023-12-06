@@ -52,6 +52,9 @@ button {
 
 header {
   padding: 24px 0;
+  position: sticky;
+  top: 0;
+  z-index: 99;
 }
 header .container {
   display: flex;
@@ -71,6 +74,7 @@ header .basket > .btn {
   position: relative;
   color: #fb4220;
   cursor: pointer;
+  background-color: white;
   box-shadow: 0px 0px 32.7px 0px rgba(0, 0, 0, 0.1);
 }
 header .basket > .btn .count {
@@ -108,6 +112,7 @@ header .basket .dropdown {
   visibility: hidden;
   transform: translateY(20px);
   transition: 0.15s;
+  box-shadow: 0px 21px 30.9px 0px rgba(0, 0, 0, 0.1);
   border: 1px solid #eceef6;
 }
 header .basket .dropdown .btn {
@@ -191,6 +196,10 @@ header .basket .dropdown.active {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
+}
+
+.section_title h1 {
+  font-size: 36px;
 }
 
 .products_list {
